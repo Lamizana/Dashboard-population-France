@@ -15,25 +15,51 @@ Mise en place de différentes applications d’**intelligence artificielle** ave
 
 ## ⚙️ Setup et installation
 
+### 🧩 Recupèrer le dépot
+
 ```bash
 # Cloner le projet
-git clone https://github.com/ton-utilisateur/cours_IA.git
+git clone https://github.com/Lamizana/Dashboard-population-France
 cd cours_IA
+```
 
+### 🧩 1️⃣ Activer l'environnement virtuel
+
+```bash
 # Créer et activer un environnement virtuel (optionnel)
 python3 -m venv .env 
 source .env/bin/activate  # ou .venv\Scripts\activate sous Windows
+
+# Pour verifier quel environement on utilise :
+which python
+/home/lamizana/projects/Dashboard-population-France/.env/bin/python
 
 # Installer les dépendances
 pip install -r requirements.txt
 ```
 
-Exécuter proprement ton script comme un module
+### 🧩 2️⃣ Installer les librairies
 
-Depuis la racine de du projet (projets_IA/), exécuter :
+```bash
+pip install -r requirements.txt
+```
+
+### 🧩 3️⃣ Gèler les dépendances dans requirements.txt si tu en rajoutes
+
+```bash
+pip freeze > requirements.txt
+```
+
+### 🧩 4️⃣ Exécuter proprement ton script comme un module
+
+Depuis la racine de du projet (Dashboard-population-France/), exécuter :
 
 ```python
-python3 -m recensement_population.main
+python3 main.py
+```
+
+```python
+python3 -m sections.deces
 ```
 
 ---
