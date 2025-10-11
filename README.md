@@ -78,32 +78,32 @@ python3 -m sections.deces
 Dashboard-population-France/
 │
 ├── dashboard/
-│   ├── app.py                      # Tableau de bord principal (Streamlit)
+│   ├── app.py                      # Tableau de bord Streamlit principal
 │   ├── sections/
-│   │   ├── population.py           # Recensement population
-│   │   ├── naissance.py            # Statistiques naissance
-│   │   ├── deces.py                # Statistiques décès
-│   │   ├── viols.py                # Statistiques viols
-│   │   ├── féminicides.py          # Statistiques féminicides
+│   │   ├── population.py
+│   │   ├── naissance.py
+│   │   ├── deces.py
+│   │   ├── viols.py
+│   │   ├── feminicides.py
 │   │   └── __init__.py
 │   └── assets/
-│       ├── cartes/                 # Images et cartes générées
+│       ├── cartes/
 │       └── data/
-│           └── deces/
-│               ├── deces-2025-m08.txt
+│           ├── deces/
+│           │   └── deces-2025-m08.txt
 │           ├── population.csv
-│           └── emploi.csv
+│           ├── emploi.csv
+│           └── naissance.csv
 │
 ├── utils/
-│   ├── logger.py                   # Logger coloré
-│   ├── data_loader.py              # Fonctions de chargement / nettoyage de données
-│   ├── plot_utils.py               # Fonctions pour graphiques (matplotlib / seaborn)
+│   ├── logger.py
+│   ├── data_loader.py
+│   ├── plot_utils.py
 │   └── __init__.py
 │
-├── requirements.txt                # Dépendances Python
-├── Dockerfile                      # Configuration Docker
-├── docker-compose.yml              # Pour exécution et port mapping
-└── main.py                         # Tests unitaires / pipeline local
+├── requirements.txt
+└── main.py
+
 ```
 
 </details>

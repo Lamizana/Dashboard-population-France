@@ -3,7 +3,7 @@ import sys
 
 # ---------------------------------------------------------------- #
 def main() -> int:
-    # TODO: Mettre en place une IA avec scikit.
+    # TODO: Generer le dasboard Streamlit
 
     try:
         print("Bienvenue")
