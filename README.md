@@ -23,43 +23,6 @@ le danger.
 
 ## ⚙️ Setup et installation
 
-### Architecture du projet
-
-- Les données sont **publiques** et ont ete récupérées `data.gouv.fr`.
-
-```css
-Dashboard-population-France/
-│
-├── dashboard/
-│   ├── app.py                      # Tableau de bord principal (Streamlit)
-│   ├── sections/
-│   │   ├── population.py           # Recensement population
-│   │   ├── naissance.py            # Statistiques naissance
-│   │   ├── deces.py                # Statistiques décès
-│   │   ├── viols.py                # Statistiques viols
-│   │   ├── féminicides.py          # Statistiques féminicides
-│   │   └── __init__.py
-│   └── assets/
-│       ├── cartes/                 # Images et cartes générées
-│       └── data/
-│           └── deces/
-│               ├── deces-2025-m08.txt
-│           ├── population.csv
-│           └── emploi.csv
-│
-├── utils/
-│   ├── logger.py                   # Logger coloré
-│   ├── data_loader.py              # Fonctions de chargement / nettoyage de données
-│   ├── plot_utils.py               # Fonctions pour graphiques (matplotlib / seaborn)
-│   └── __init__.py
-│
-├── requirements.txt                # Dépendances Python
-├── Dockerfile                      # Configuration Docker
-├── docker-compose.yml              # Pour exécution et port mapping
-└── main.py                         # Tests unitaires / pipeline local
-```
-
-
 
 ### 🧩 Recupèrer le dépot
 
@@ -104,6 +67,58 @@ python3 main.py
 ```python
 python3 -m sections.deces
 ```
+
+---
+
+## Architecture et compréhension du projet
+
+<details> <summary><strong>🧩 Architecture</strong></summary>
+
+```css
+Dashboard-population-France/
+│
+├── dashboard/
+│   ├── app.py                      # Tableau de bord principal (Streamlit)
+│   ├── sections/
+│   │   ├── population.py           # Recensement population
+│   │   ├── naissance.py            # Statistiques naissance
+│   │   ├── deces.py                # Statistiques décès
+│   │   ├── viols.py                # Statistiques viols
+│   │   ├── féminicides.py          # Statistiques féminicides
+│   │   └── __init__.py
+│   └── assets/
+│       ├── cartes/                 # Images et cartes générées
+│       └── data/
+│           └── deces/
+│               ├── deces-2025-m08.txt
+│           ├── population.csv
+│           └── emploi.csv
+│
+├── utils/
+│   ├── logger.py                   # Logger coloré
+│   ├── data_loader.py              # Fonctions de chargement / nettoyage de données
+│   ├── plot_utils.py               # Fonctions pour graphiques (matplotlib / seaborn)
+│   └── __init__.py
+│
+├── requirements.txt                # Dépendances Python
+├── Dockerfile                      # Configuration Docker
+├── docker-compose.yml              # Pour exécution et port mapping
+└── main.py                         # Tests unitaires / pipeline local
+```
+
+</details>
+
+1. Le projet est centralisé avec **Docker**.
+2. L'application est dirigée par **Streamlit**.
+3. Les fichiers du gouvrenement francais sur le recensement de la population sont des `.txt`
+   1. Ils sont récupérés sur `data.gouv.fr`
+   2. C'est public, donc gratuit, vous pouvez tous savoir.
+   3. Il y a une quantité astromique de données publiques.
+   4. Et elles sont **anonimisées** !
+
+- `dashboard/app.py` — **point d’entrée Streamlit**.
+
+### 
 
 ---
 
