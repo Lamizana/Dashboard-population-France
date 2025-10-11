@@ -4,6 +4,14 @@ Mise en place de différentes applications d’**intelligence artificielle** ave
 
 ---
 
+## Introduction
+
+Ce projet a pour but d'analyser les vrais chiffres de la population (données publique 'data.gouv.fr') et d'étudier 
+les différentes corrélation sur la violence exercées sur les femmes en france.
+
+Le but de ce projet est de trouver des patterns sur la condition de l'agresseur et de l'agressé pour mieux prévenir 
+le danger.
+
 ## 📚 Sommaire
 
 - [Setup et installation](#setup-et-installation)
@@ -15,12 +23,50 @@ Mise en place de différentes applications d’**intelligence artificielle** ave
 
 ## ⚙️ Setup et installation
 
+### Architecture du projet
+
+- Les données sont **publiques** et ont ete récupérées `data.gouv.fr`.
+
+```css
+Dashboard-population-France/
+│
+├── dashboard/
+│   ├── app.py                      # Tableau de bord principal (Streamlit)
+│   ├── sections/
+│   │   ├── population.py           # Recensement population
+│   │   ├── naissance.py            # Statistiques naissance
+│   │   ├── deces.py                # Statistiques décès
+│   │   ├── viols.py                # Statistiques viols
+│   │   ├── féminicides.py          # Statistiques féminicides
+│   │   └── __init__.py
+│   └── assets/
+│       ├── cartes/                 # Images et cartes générées
+│       └── data/
+│           └── deces/
+│               ├── deces-2025-m08.txt
+│           ├── population.csv
+│           └── emploi.csv
+│
+├── utils/
+│   ├── logger.py                   # Logger coloré
+│   ├── data_loader.py              # Fonctions de chargement / nettoyage de données
+│   ├── plot_utils.py               # Fonctions pour graphiques (matplotlib / seaborn)
+│   └── __init__.py
+│
+├── requirements.txt                # Dépendances Python
+├── Dockerfile                      # Configuration Docker
+├── docker-compose.yml              # Pour exécution et port mapping
+└── main.py                         # Tests unitaires / pipeline local
+```
+
+
+
 ### 🧩 Recupèrer le dépot
 
 ```bash
 # Cloner le projet
 git clone https://github.com/Lamizana/Dashboard-population-France
-cd cours_IA
+cd Dashboard-population-France
 ```
 
 ### 🧩 1️⃣ Activer l'environnement virtuel
@@ -33,9 +79,6 @@ source .env/bin/activate  # ou .venv\Scripts\activate sous Windows
 # Pour verifier quel environement on utilise :
 which python
 /home/lamizana/projects/Dashboard-population-France/.env/bin/python
-
-# Installer les dépendances
-pip install -r requirements.txt
 ```
 
 ### 🧩 2️⃣ Installer les librairies
