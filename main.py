@@ -1,12 +1,14 @@
 import sys
+from utils.logger import Logger
 
+LOG = Logger()
 
 # ---------------------------------------------------------------- #
 def main() -> int:
     # TODO: Generer le dasboard Streamlit
 
     try:
-        print("Bienvenue")
+        LOG.info("Bienvenue")
 
     except Exception as e:
         print("FERMETURE FORCE -")
