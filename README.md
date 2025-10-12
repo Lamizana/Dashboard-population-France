@@ -139,6 +139,42 @@ Dashboard-population-France/
 
 <details> <summary><strong>🧩 Cliquer pour dérouler la section d'utilisation</strong></summary>
 
+### Les pull Request (Pr)
+
+- Toujours commencer par un ``git pull``.
+
+```bash
+> git checkout -b Prefix/name_pull_request
+> git commit -am "Prefix:name_pull_request"
+> git push
+```
+
+Allez sur github et créer une pull request, remplir le formulaire et les labels puis l'envoyer
+
+### Création d'une nouvelle branche
+
+Créer une nouvelle branche ***feature/...*** à partir de la branche principale ``develop``  et la pousser vers le dépôt Git distant, voici les étapes à suivre :
+
+Se placer sur la branche de base et la mettre à jour :
+
+```bash
+git checkout develop
+git pull origin develop
+```
+
+Créer et basculer sur la nouvelle branche :
+
+```bash
+git checkout -b feature/...
+```
+
+Pousse la nouvelle branche sur le dépôt distant :
+
+```bash
+q
+```
+
+
 ### TODO avec Pycharm
 
 #### ✅ 1. Ecrire une TODO dans le code
