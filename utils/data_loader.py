@@ -1,70 +1,74 @@
+import os
 import re
 import pandas as pd
+from tqdm import tqdm
 from pathlib import Path
 from utils.logger import Logger
 
-LOG = Logger("deces_pipeline.log")
-
+LOG = Logger()
 
 # ---------------------------------------------------------------------
 def lire_fichier_deces(fichier: Path) -> pd.DataFrame:
     """
-    Lecture d’un fichier texte de décès (INSEE) au format FWF.
-    Extraction des colonnes à l’aide d’une expression régulière.
+    Lecture du fichier décès INSEE au format FWF (largeur fixe)
     """
-
     LOG.info(f"Lecture du fichier décès brut : {fichier}")
-    lignes = []
 
-    try:
-        with open(fichier, "r", encoding="utf-8", errors="ignore") as f:
-            for ligne in f:
-                match = re.match(
-                    r"^([A-ZÉÈÀÙÂÊÎÔÛÄËÏÖÜÇ' \-\*]+)/(?:\s*)(1|2)(\d{8})(\d{5})([A-Z \-']+)(\d{8})(\d{5})",
-                    ligne
-                )
-                if match:
-                    lignes.append(match.groups())
+    if not fichier.exists():
+        raise FileNotFoundError(f"Fichier non trouvé : {fichier}")
 
-        colonnes = [
-            "nom",
-            "sexe",
-            "date_naissance",
-            "lieu_naissance_code",
-            "lieu_naissance_nom",
-            "date_deces",
-            "lieu_deces_code",
-        ]
+    colspecs = [
+        (0, 80),        # nom + prénom
+        (80, 81),       # sexe
+        (81, 89),       # date naissance AAAAMMJJ
+        (89, 94),       # code lieu naissance
+        (94, 124),      # commune naissance
+        (124, 154),     # pays naissance
+        (154, 162),     # date décès AAAAMMJJ
+        (162, 167),     # code lieu décès
+        (167, 176)      # numéro d’acte
+    ]
+    names = [
+        "nom_prenom",
+        "sexe",
+        "date_naissance",
+        "code_lieu_naissance",
+        "commune_naissance",
+        "pays_naissance",
+        "date_deces",
+        "code_lieu_deces",
+        "numero_acte"
+    ]
 
-        df = pd.DataFrame(lignes, columns=colonnes)
-        LOG.info(f"{len(df):,} lignes lues depuis {fichier}")
-        return df
-
-    except Exception as e:
-        LOG.error(f"Erreur lors de la lecture du fichier : {e}")
-        raise
+    df = pd.read_fwf(fichier, colspecs=colspecs, names=names, dtype=str, encoding="utf-8")
+    LOG.info(f"{len(df):_} lignes lues depuis {fichier}")
+    return df
 
 
 # ---------------------------------------------------------------------
 def nettoyer_deces(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Nettoyage du DataFrame : conversion des dates, calcul de l'âge,
-    filtrage des valeurs aberrantes.
+    Nettoie et enrichit un DataFrame de décès :
+    - Conversion des dates en datetime
+    - Calcul de l’âge au décès
+    - Filtrage des âges aberrants
     """
 
-    LOG.info("Nettoyage du DataFrame décès...")
+    LOG.info("Nettoyage des données de décès...")
     try:
         # Conversion des dates
         df["date_naissance"] = pd.to_datetime(df["date_naissance"], format="%Y%m%d", errors="coerce")
         df["date_deces"] = pd.to_datetime(df["date_deces"], format="%Y%m%d", errors="coerce")
 
-        # Calcul de l'âge au décès
-        df["age_deces"] = ((df["date_deces"] - df["date_naissance"]).dt.days / 365.25).round(0)
-
-        # Filtrage des âges aberrants
+        # Calcul de l'âge
+        df["age_deces"] = ((df["date_deces"] - df["date_naissance"]).dt.days / 365.25).round(1)
         df.loc[(df["age_deces"] < 0) | (df["age_deces"] > 140), "age_deces"] = pd.NA
 
-        LOG.info("✅ Nettoyage terminé avec succès.")
+        # Ajout de colonnes dérivées utiles
+        df["annee_deces"] = df["date_deces"].dt.year
+        df["mois_deces"] = df["date_deces"].dt.month
+
+        LOG.info("✅ Nettoyage terminé.")
         return df
 
     except Exception as e:
@@ -73,52 +77,66 @@ def nettoyer_deces(df: pd.DataFrame) -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------------
-def convertir_deces_txt_en_csv(year: int) -> pd.DataFrame:
+def convert_to_parquet(
+    source_dir: Path,
+    output_dir: None,
+    delete_original: bool = False,
+):
     """
-    Si le CSV n’existe pas encore, convertit le fichier texte en CSV.
-    Si le CSV existe, le charge directement.
+    Convertit tous les fichiers `.txt` d’un dossier en `.parquet` optimisés.
+
+    Args:
+        source_dir (Path): dossier contenant les fichiers texte
+        output_dir (Path | None): dossier de sortie (par défaut = source_dir)
+        delete_original (bool): supprime le fichier source après conversion si True
     """
 
-    base_path = Path("dashboard/assets/data/deces")
-    base_path.mkdir(parents=True, exist_ok=True)
+    output_dir = output_dir or source_dir
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-    txt_path = base_path / f"deces-{year}.txt"
-    csv_path = base_path / f"deces-{year}.csv"
+    fichiers_txt = list(source_dir.glob("*.txt"))
+    if not fichiers_txt:
+        LOG.warning(f"Aucun fichier .txt trouvé dans {source_dir}")
+        return
 
-    # Si le CSV existe déjà → lecture directe
-    if csv_path.exists():
-        LOG.info(f"✅ Fichier CSV déjà présent, chargement : {csv_path}")
-        return pd.read_csv(csv_path)
+    LOG.info(f"Conversion de {len(fichiers_txt)} fichiers TXT → Parquet...")
 
-    # Sinon, conversion à partir du fichier texte
-    if not txt_path.exists():
-        LOG.error(f"❌ Fichier texte introuvable : {txt_path}")
-        raise FileNotFoundError(f"Fichier {txt_path} non trouvé.")
+    for f in tqdm(fichiers_txt, desc="Conversion en cours", unit="fichier"):
+        try:
+            df = lire_fichier_deces(f)
+            df = nettoyer_deces(df)
 
-    LOG.info(f"📥 Conversion du fichier texte en CSV : {txt_path}")
-    df = lire_fichier_deces(txt_path)
-    df = nettoyer_deces(df)
+            LOG.info(f"Nombre de ligne après nettoyage: {len(df):_}")
+            parquet_path = output_dir / (f.stem.replace("-", "_") + ".parquet")
+            df.to_parquet(parquet_path, index=False)
 
-    # Export CSV
-    df.to_csv(csv_path, index=False, encoding="utf-8")
-    LOG.info(f"💾 Fichier CSV enregistré : {csv_path}")
+            size_in = f.stat().st_size / 1024 / 1024
+            size_out = parquet_path.stat().st_size / 1024 / 1024
+            LOG.info(f"{f.name}: {size_in:.1f} Mo → {parquet_path.name}: {size_out:.1f} Mo")
 
-    return df
+            if delete_original:
+                os.remove(f)
+                LOG.info(f"🗑️  Fichier source supprimé : {f.name}")
+
+        except Exception as e:
+            LOG.error(f"Erreur lors de la conversion de {f.name}: {e}")
+
+    LOG.info("✅ Conversion complète terminée.")
 
 
 # ---------------------------------------------------------------------
-def charger_deces(year: int = 2024) -> pd.DataFrame:
+def charger_parquet_multi(base_dir: Path) -> pd.DataFrame:
     """
-    Fonction principale : charge les données de décès.
-    - Si le CSV existe → lecture directe.
-    - Sinon → conversion depuis le .txt, puis lecture.
+    Charge tous les fichiers `.parquet` d’un dossier et les fusionne en un seul DataFrame.
     """
 
-    try:
-        LOG.info(f"Chargement des données de décès pour l’année {year}...")
-        df = convertir_deces_txt_en_csv(year)
-        LOG.info(f"✅ Données de décès {year} prêtes ({len(df):,} lignes)")
-        return df
-    except Exception as e:
-        LOG.critical(f"Erreur fatale dans le pipeline décès : {e}")
-        raise
+    fichiers = sorted(base_dir.glob("*.parquet"))
+    if not fichiers:
+        LOG.warning(f"Aucun fichier Parquet trouvé dans {base_dir}")
+        return pd.DataFrame()
+
+    LOG.info(f"Chargement de {len(fichiers)} fichiers Parquet depuis {base_dir}...")
+    dfs = [pd.read_parquet(f) for f in fichiers]
+    df = pd.concat(dfs, ignore_index=True)
+    LOG.info(f"✅ Données fusionnées : {len(df):,} lignes totales.")
+    return df

@@ -84,6 +84,7 @@ Dashboard-population-France/
 │
 ├── dashboard/
 │   ├── app.py                      # Tableau de bord Streamlit principal
+│   ├── __init__.py                      # Tableau de bord Streamlit principal
 │   ├── sections/
 │   │   ├── population.py
 │   │   ├── naissance.py
@@ -95,17 +96,24 @@ Dashboard-population-France/
 │       ├── cartes/
 │       └── data/
 │           ├── deces/
-│           │   └── deces-2025-m08.txt
+│           │   └── deces-2025.txt
 │           ├── population.csv
 │           ├── emploi.csv
 │           └── naissance.csv
 │
+│
+├── data_processed/              # ✅ données lourdes Parquet
+│   └── deces/
+│       ├── deces_2020.parquet
+│       ├── deces_2021.parquet
+│       ├── ...
 ├── utils/
 │   ├── logger.py
 │   ├── data_loader.py
 │   ├── plot_utils.py
 │   └── __init__.py
 │
+├── __init__.py
 ├── requirements.txt
 └── main.py
 
