@@ -7,6 +7,7 @@ from utils.logger import Logger
 
 LOG = Logger()
 
+
 # ---------------------------------------------------------------------
 def lire_fichier_deces(fichier: Path) -> pd.DataFrame:
     """
