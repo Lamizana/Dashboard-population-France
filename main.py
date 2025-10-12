@@ -1,17 +1,22 @@
 import sys
+from utils.data_loader import convert_to_parquet
+from utils.logger import Logger
+
+LOG = Logger("main.log")
 
 
-# ---------------------------------------------------------------- #
+#####################################################################
 def main() -> int:
-    # TODO: Generer le dasboard Streamlit
 
     try:
-        print("Bienvenue")
-
+        LOG.info("Bienvenue")
     except Exception as e:
-        print("FERMETURE FORCE -")
+        LOG.error(f"FERMETURE FORCE - {e}")
+        return 1
+    finally:
+        LOG.info("Fin de l’exécution.")
+        LOG.separator()
 
-    print("Fin de l’exécution.")
     return 0
 
 

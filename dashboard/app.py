@@ -16,12 +16,16 @@ section = st.sidebar.radio(
 )
 
 # --- Navigation ---
+if section == "Décès":
+    deces.render()
+
+
+
 # if section == "Population":
 # population.show()
 #elif section == "Naissance":
    # naissance.show()
-#elif section == "Décès":
- #   deces.show()
+
 #elif section == "Viols":
 #    viols.show()
 #elif section == "Féminicides":
