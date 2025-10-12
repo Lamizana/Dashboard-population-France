@@ -60,12 +60,17 @@ pip freeze > requirements.txt
 
 Depuis la racine de du projet (Dashboard-population-France/), exécuter :
 
-```python
+```bash
 python3 main.py
 ```
 
-```python
+```bash
 python3 -m sections.deces
+```
+
+- Lancer le Dadshboard en local :
+```bash
+streamlit run dashboard/app.py
 ```
 
 ---

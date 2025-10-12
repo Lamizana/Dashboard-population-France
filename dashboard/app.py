@@ -16,16 +16,16 @@ section = st.sidebar.radio(
 )
 
 # --- Navigation ---
-if section == "Population":
-    population.show()
-elif section == "Naissance":
-    naissance.show()
-elif section == "Décès":
-    deces.show()
-elif section == "Viols":
-    viols.show()
-elif section == "Féminicides":
-    feminicides.show()
+# if section == "Population":
+# population.show()
+#elif section == "Naissance":
+   # naissance.show()
+#elif section == "Décès":
+ #   deces.show()
+#elif section == "Viols":
+#    viols.show()
+#elif section == "Féminicides":
+  #  feminicides.show()
 
 st.markdown("---")
 st.caption("Source : data.gouv.fr | INSEE | Ministère de l'Intérieur  — © 2025 Alex LAMIZANA")
