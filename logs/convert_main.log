@@ -1,0 +1,120 @@
+2025-10-12 14:28:50 [INFO] [main(24)] - 🚀 Démarrage de la conversion massive INSEE (TXT → Parquet)
+2025-10-12 14:28:50 [WARNING] [data_loader.py in convert_to_parquet(103)] - Aucun fichier .txt trouvé dans dashboard\assets\data\deces
+2025-10-12 14:28:50 [INFO] [main(32)] - ✅ Conversion terminée avec succès.
+2025-10-12 14:28:50 [INFO] [main(33)] - Fichiers Parquet disponibles dans : \\wsl$\Ubuntu\home\lamizana\projects\Dashboard-population-France\data_processed\deces
+2025-10-12 14:31:39 [INFO] [main(24)] - 🚀 Démarrage de la conversion massive INSEE (TXT → Parquet)
+2025-10-12 14:31:39 [WARNING] [data_loader.py in convert_to_parquet(103)] - Aucun fichier .txt trouvé dans dashboard\assets\data\deces
+2025-10-12 14:31:39 [INFO] [main(32)] - ✅ Conversion terminée avec succès.
+2025-10-12 14:31:39 [INFO] [main(33)] - Fichiers Parquet disponibles dans : \\wsl$\Ubuntu\home\lamizana\projects\Dashboard-population-France\data_processed\deces
+2025-10-12 16:00:02 [INFO] [main(24)] - 🚀 Démarrage de la conversion massive INSEE (TXT → Parquet)
+2025-10-12 16:00:02 [WARNING] [data_loader.py in convert_to_parquet(103)] - Aucun fichier .txt trouvé dans dashboard\assets\data\deces
+2025-10-12 16:00:02 [INFO] [main(32)] - ✅ Conversion terminée avec succès.
+2025-10-12 16:00:02 [INFO] [main(33)] - Fichiers Parquet disponibles dans : \\wsl$\Ubuntu\home\lamizana\projects\Dashboard-population-France\data_processed\deces
+2025-10-12 16:01:02 [INFO] [main(24)] - 🚀 Démarrage de la conversion massive INSEE (TXT → Parquet)
+2025-10-12 16:01:02 [WARNING] [data_loader.py in convert_to_parquet(103)] - Aucun fichier .txt trouvé dans \data_processed\deces
+2025-10-12 16:01:02 [INFO] [main(32)] - ✅ Conversion terminée avec succès.
+2025-10-12 16:01:02 [INFO] [main(33)] - Fichiers Parquet disponibles dans : \\wsl$\Ubuntu\home\lamizana\projects\Dashboard-population-France\data_processed\deces
+2025-10-12 16:01:19 [INFO] [main(24)] - 🚀 Démarrage de la conversion massive INSEE (TXT → Parquet)
+2025-10-12 16:01:19 [INFO] [convert_to_parquet(106)] - Conversion de 5 fichiers TXT → Parquet...
+2025-10-12 16:01:19 [INFO] [lire_fichier_deces(17)] - Lecture du fichier décès brut : data_processed\deces\deces-2022.txt
+2025-10-12 16:01:25 [INFO] [lire_fichier_deces(44)] - 0 lignes valides extraites depuis data_processed\deces\deces-2022.txt
+2025-10-12 16:01:25 [INFO] [nettoyer_deces(61)] - Nettoyage des données de décès...
+2025-10-12 16:01:25 [INFO] [nettoyer_deces(75)] - ✅ Nettoyage terminé.
+2025-10-12 16:01:25 [INFO] [convert_to_parquet(118)] - deces-2022.txt: 129.8 Mo → deces_2022.parquet: 0.0 Mo
+2025-10-12 16:01:25 [INFO] [lire_fichier_deces(17)] - Lecture du fichier décès brut : data_processed\deces\deces-2021.txt
+2025-10-12 16:01:31 [INFO] [lire_fichier_deces(44)] - 0 lignes valides extraites depuis data_processed\deces\deces-2021.txt
+2025-10-12 16:01:31 [INFO] [nettoyer_deces(61)] - Nettoyage des données de décès...
+2025-10-12 16:01:31 [INFO] [nettoyer_deces(75)] - ✅ Nettoyage terminé.
+2025-10-12 16:01:31 [INFO] [convert_to_parquet(118)] - deces-2021.txt: 127.4 Mo → deces_2021.parquet: 0.0 Mo
+2025-10-12 16:01:31 [INFO] [lire_fichier_deces(17)] - Lecture du fichier décès brut : data_processed\deces\deces-2020.txt
+2025-10-12 16:01:36 [INFO] [lire_fichier_deces(44)] - 0 lignes valides extraites depuis data_processed\deces\deces-2020.txt
+2025-10-12 16:01:36 [INFO] [nettoyer_deces(61)] - Nettoyage des données de décès...
+2025-10-12 16:01:36 [INFO] [nettoyer_deces(75)] - ✅ Nettoyage terminé.
+2025-10-12 16:01:36 [INFO] [convert_to_parquet(118)] - deces-2020.txt: 129.7 Mo → deces_2020.parquet: 0.0 Mo
+2025-10-12 16:01:36 [INFO] [lire_fichier_deces(17)] - Lecture du fichier décès brut : data_processed\deces\deces-2023.txt
+2025-10-12 16:01:42 [INFO] [lire_fichier_deces(44)] - 0 lignes valides extraites depuis data_processed\deces\deces-2023.txt
+2025-10-12 16:01:42 [INFO] [nettoyer_deces(61)] - Nettoyage des données de décès...
+2025-10-12 16:01:42 [INFO] [nettoyer_deces(75)] - ✅ Nettoyage terminé.
+2025-10-12 16:01:42 [INFO] [convert_to_parquet(118)] - deces-2023.txt: 123.3 Mo → deces_2023.parquet: 0.0 Mo
+2025-10-12 16:01:42 [INFO] [lire_fichier_deces(17)] - Lecture du fichier décès brut : data_processed\deces\deces-2024.txt
+2025-10-12 16:01:48 [INFO] [lire_fichier_deces(44)] - 0 lignes valides extraites depuis data_processed\deces\deces-2024.txt
+2025-10-12 16:01:48 [INFO] [nettoyer_deces(61)] - Nettoyage des données de décès...
+2025-10-12 16:01:48 [INFO] [nettoyer_deces(75)] - ✅ Nettoyage terminé.
+2025-10-12 16:01:48 [INFO] [convert_to_parquet(118)] - deces-2024.txt: 124.6 Mo → deces_2024.parquet: 0.0 Mo
+2025-10-12 16:01:48 [INFO] [convert_to_parquet(127)] - ✅ Conversion complète terminée.
+2025-10-12 16:01:48 [INFO] [main(32)] - ✅ Conversion terminée avec succès.
+2025-10-12 16:01:48 [INFO] [main(33)] - Fichiers Parquet disponibles dans : \\wsl$\Ubuntu\home\lamizana\projects\Dashboard-population-France\data_processed\deces
+2025-10-12 16:07:18 [INFO] [main(24)] - 🚀 Démarrage de la conversion massive INSEE (TXT → Parquet)
+2025-10-12 16:07:18 [INFO] [convert_to_parquet(102)] - Conversion de 5 fichiers TXT → Parquet...
+2025-10-12 16:07:18 [INFO] [lire_fichier_deces(15)] - Lecture du fichier décès brut : data_processed\deces\deces-2022.txt
+2025-10-12 16:07:27 [INFO] [lire_fichier_deces(44)] - 683,870 lignes lues depuis data_processed\deces\deces-2022.txt
+2025-10-12 16:07:27 [INFO] [nettoyer_deces(57)] - Nettoyage des données de décès...
+2025-10-12 16:07:28 [INFO] [nettoyer_deces(71)] - ✅ Nettoyage terminé.
+2025-10-12 16:07:29 [INFO] [convert_to_parquet(114)] - deces-2022.txt: 129.8 Mo → deces_2022.parquet: 20.2 Mo
+2025-10-12 16:07:29 [INFO] [lire_fichier_deces(15)] - Lecture du fichier décès brut : data_processed\deces\deces-2021.txt
+2025-10-12 16:07:38 [INFO] [lire_fichier_deces(44)] - 671,469 lignes lues depuis data_processed\deces\deces-2021.txt
+2025-10-12 16:07:38 [INFO] [nettoyer_deces(57)] - Nettoyage des données de décès...
+2025-10-12 16:07:39 [INFO] [nettoyer_deces(71)] - ✅ Nettoyage terminé.
+2025-10-12 16:07:40 [INFO] [convert_to_parquet(114)] - deces-2021.txt: 127.4 Mo → deces_2021.parquet: 19.9 Mo
+2025-10-12 16:07:40 [INFO] [lire_fichier_deces(15)] - Lecture du fichier décès brut : data_processed\deces\deces-2020.txt
+2025-10-12 16:07:54 [INFO] [lire_fichier_deces(44)] - 679,924 lignes lues depuis data_processed\deces\deces-2020.txt
+2025-10-12 16:07:54 [INFO] [nettoyer_deces(57)] - Nettoyage des données de décès...
+2025-10-12 16:07:55 [INFO] [nettoyer_deces(71)] - ✅ Nettoyage terminé.
+2025-10-12 16:07:56 [INFO] [convert_to_parquet(114)] - deces-2020.txt: 129.7 Mo → deces_2020.parquet: 20.0 Mo
+2025-10-12 16:07:56 [INFO] [lire_fichier_deces(15)] - Lecture du fichier décès brut : data_processed\deces\deces-2023.txt
+2025-10-12 16:08:19 [INFO] [lire_fichier_deces(44)] - 649,513 lignes lues depuis data_processed\deces\deces-2023.txt
+2025-10-12 16:08:19 [INFO] [nettoyer_deces(57)] - Nettoyage des données de décès...
+2025-10-12 16:08:19 [INFO] [nettoyer_deces(71)] - ✅ Nettoyage terminé.
+2025-10-12 16:08:21 [INFO] [convert_to_parquet(114)] - deces-2023.txt: 123.3 Mo → deces_2023.parquet: 19.0 Mo
+2025-10-12 16:08:21 [INFO] [lire_fichier_deces(15)] - Lecture du fichier décès brut : data_processed\deces\deces-2024.txt
+2025-10-12 16:08:32 [INFO] [lire_fichier_deces(44)] - 656,286 lignes lues depuis data_processed\deces\deces-2024.txt
+2025-10-12 16:08:32 [INFO] [nettoyer_deces(57)] - Nettoyage des données de décès...
+2025-10-12 16:08:32 [INFO] [nettoyer_deces(71)] - ✅ Nettoyage terminé.
+2025-10-12 16:08:33 [INFO] [convert_to_parquet(114)] - deces-2024.txt: 124.6 Mo → deces_2024.parquet: 19.3 Mo
+2025-10-12 16:08:33 [INFO] [convert_to_parquet(123)] - ✅ Conversion complète terminée.
+2025-10-12 16:08:33 [INFO] [main(32)] - ✅ Conversion terminée avec succès.
+2025-10-12 16:08:33 [INFO] [main(33)] - Fichiers Parquet disponibles dans : \\wsl$\Ubuntu\home\lamizana\projects\Dashboard-population-France\data_processed\deces
+2025-10-12 16:12:41 [INFO] [main(24)] - 🚀 Démarrage de la conversion massive INSEE (TXT → Parquet)
+2025-10-12 16:12:41 [INFO] [convert_to_parquet(102)] - Conversion de 5 fichiers TXT → Parquet...
+2025-10-12 16:12:41 [INFO] [lire_fichier_deces(15)] - Lecture du fichier décès brut : data_processed/deces/deces-2022.txt
+2025-10-12 16:12:49 [INFO] [lire_fichier_deces(44)] - 683,870 lignes lues depuis data_processed/deces/deces-2022.txt
+2025-10-12 16:12:49 [INFO] [nettoyer_deces(57)] - Nettoyage des données de décès...
+2025-10-12 16:12:49 [INFO] [nettoyer_deces(71)] - ✅ Nettoyage terminé.
+2025-10-12 16:12:49 [INFO] [convert_to_parquet(108)] - Nombre de ligne après nettoyage: (683870, 12)
+2025-10-12 16:12:50 [INFO] [convert_to_parquet(114)] - deces-2022.txt: 129.8 Mo → deces_2022.parquet: 20.2 Mo
+2025-10-12 16:12:50 [INFO] [convert_to_parquet(118)] - 🗑️  Fichier source supprimé : deces-2022.txt
+2025-10-12 16:12:50 [INFO] [lire_fichier_deces(15)] - Lecture du fichier décès brut : data_processed/deces/deces-2021.txt
+2025-10-12 16:12:58 [INFO] [lire_fichier_deces(44)] - 671,469 lignes lues depuis data_processed/deces/deces-2021.txt
+2025-10-12 16:12:58 [INFO] [nettoyer_deces(57)] - Nettoyage des données de décès...
+2025-10-12 16:12:58 [INFO] [nettoyer_deces(71)] - ✅ Nettoyage terminé.
+2025-10-12 16:12:58 [INFO] [convert_to_parquet(108)] - Nombre de ligne après nettoyage: (671469, 12)
+2025-10-12 16:12:59 [INFO] [convert_to_parquet(114)] - deces-2021.txt: 127.4 Mo → deces_2021.parquet: 19.9 Mo
+2025-10-12 16:12:59 [INFO] [convert_to_parquet(118)] - 🗑️  Fichier source supprimé : deces-2021.txt
+2025-10-12 16:12:59 [INFO] [lire_fichier_deces(15)] - Lecture du fichier décès brut : data_processed/deces/deces-2020.txt
+2025-10-12 16:13:05 [INFO] [lire_fichier_deces(44)] - 679,924 lignes lues depuis data_processed/deces/deces-2020.txt
+2025-10-12 16:13:06 [INFO] [nettoyer_deces(57)] - Nettoyage des données de décès...
+2025-10-12 16:13:06 [INFO] [nettoyer_deces(71)] - ✅ Nettoyage terminé.
+2025-10-12 16:13:06 [INFO] [convert_to_parquet(108)] - Nombre de ligne après nettoyage: (679924, 12)
+2025-10-12 16:13:07 [INFO] [convert_to_parquet(114)] - deces-2020.txt: 129.7 Mo → deces_2020.parquet: 20.0 Mo
+2025-10-12 16:13:07 [INFO] [convert_to_parquet(118)] - 🗑️  Fichier source supprimé : deces-2020.txt
+2025-10-12 16:13:07 [INFO] [lire_fichier_deces(15)] - Lecture du fichier décès brut : data_processed/deces/deces-2023.txt
+2025-10-12 16:13:13 [INFO] [lire_fichier_deces(44)] - 649,513 lignes lues depuis data_processed/deces/deces-2023.txt
+2025-10-12 16:13:13 [INFO] [nettoyer_deces(57)] - Nettoyage des données de décès...
+2025-10-12 16:13:13 [INFO] [nettoyer_deces(71)] - ✅ Nettoyage terminé.
+2025-10-12 16:13:13 [INFO] [convert_to_parquet(108)] - Nombre de ligne après nettoyage: (649513, 12)
+2025-10-12 16:13:14 [INFO] [convert_to_parquet(114)] - deces-2023.txt: 123.3 Mo → deces_2023.parquet: 19.0 Mo
+2025-10-12 16:13:14 [INFO] [convert_to_parquet(118)] - 🗑️  Fichier source supprimé : deces-2023.txt
+2025-10-12 16:13:14 [INFO] [lire_fichier_deces(15)] - Lecture du fichier décès brut : data_processed/deces/deces-2024.txt
+2025-10-12 16:13:21 [INFO] [lire_fichier_deces(44)] - 656,286 lignes lues depuis data_processed/deces/deces-2024.txt
+2025-10-12 16:13:21 [INFO] [nettoyer_deces(57)] - Nettoyage des données de décès...
+2025-10-12 16:13:21 [INFO] [nettoyer_deces(71)] - ✅ Nettoyage terminé.
+2025-10-12 16:13:21 [INFO] [convert_to_parquet(108)] - Nombre de ligne après nettoyage: (656286, 12)
+2025-10-12 16:13:22 [INFO] [convert_to_parquet(114)] - deces-2024.txt: 124.6 Mo → deces_2024.parquet: 19.3 Mo
+2025-10-12 16:13:22 [INFO] [convert_to_parquet(118)] - 🗑️  Fichier source supprimé : deces-2024.txt
+2025-10-12 16:13:22 [INFO] [convert_to_parquet(123)] - ✅ Conversion complète terminée.
+2025-10-12 16:13:22 [INFO] [main(32)] - ✅ Conversion terminée avec succès.
+2025-10-12 16:13:22 [INFO] [main(33)] - Fichiers Parquet disponibles dans : /home/lamizana/projects/Dashboard-population-France/data_processed/deces
+2025-10-12 16:15:46 [INFO] [main(24)] - 🚀 Démarrage de la conversion massive INSEE (TXT → Parquet)
+2025-10-12 16:15:46 [WARNING] [data_loader.py in convert_to_parquet(99)] - Aucun fichier .txt trouvé dans data_processed/deces
+2025-10-12 16:15:46 [INFO] [main(32)] - ✅ Conversion terminée avec succès.
+2025-10-12 16:15:46 [INFO] [main(33)] - Fichiers Parquet disponibles dans : /home/lamizana/projects/Dashboard-population-France/data_processed/deces
