@@ -1,5 +1,4 @@
 import os
-import re
 import pandas as pd
 from tqdm import tqdm
 from pathlib import Path
@@ -8,7 +7,9 @@ from utils.logger import Logger
 LOG = Logger()
 
 
-# ---------------------------------------------------------------------
+#######################################################################
+#                           DECES
+#######################################################################
 def lire_fichier_deces(fichier: Path) -> pd.DataFrame:
     """
     Lecture du fichier décès INSEE au format FWF (largeur fixe)
@@ -77,7 +78,50 @@ def nettoyer_deces(df: pd.DataFrame) -> pd.DataFrame:
         raise
 
 
+#######################################################################
+#                           NAISSANCES
+#######################################################################
 # ---------------------------------------------------------------------
+def lire_fichier_naissances(fichier: str) -> pd.DataFrame:
+    """
+    Lecture du fichier des naissances INSEE au format Parquet.
+    Renomme les colonnes selon la documentation officielle.
+    """
+
+    LOG.info(f"Lecture du fichier naissance brut : {fichier}")
+    try:
+        # Lecture du fichier Parquet
+        df = pd.read_parquet(fichier)
+
+        # Renommage des colonnes
+        mapping_colonnes = {
+            "AGEMERE": "age_mere",
+            "AGEXACTM": "age_exact_mere",
+            "ANAIS": "annee_naissance",
+            "DEPDOMM": "dep_domicile_mere",
+            "DEPNAIS": "dep_naissance_enfant",
+            "GAGEXAPOM": "groupe_age_second_parent_exact",
+            "GAGPOM": "groupe_age_second_parent",
+            "INDLNM": "lieu_naissance_mere",
+            "INDNATM": "nationalite_mere",
+            "MNAIS": "mois_naissance_enfant",
+            "NBENF": "nombre_enfants_accouchement",
+            "REGDOMM": "region_domicile_mere",
+            "REGNAIS": "region_naissance_enfant",
+            "SEXE": "sexe_enfant"
+        }
+
+        df = df.rename(columns=mapping_colonnes).convert_dtypes()
+    except Exception as e:
+        LOG.warning(f"Erreur fichier {fichier}: {e}")
+
+    LOG.info(f"{len(df):_} lignes chargées depuis {fichier}")
+    return df
+
+
+#######################################################################
+#                     CONVERSION EN .parquet
+#######################################################################
 def convert_to_parquet(
     source_dir: Path,
     output_dir: None,
