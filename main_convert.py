@@ -9,7 +9,7 @@ TXT → Parquet optimisé.
 """
 
 from pathlib import Path
-from utils.data_loader import convert_to_parquet
+from utils.loader import convert_to_parquet
 from utils.logger import Logger
 
 LOG = Logger("convert_main.log")

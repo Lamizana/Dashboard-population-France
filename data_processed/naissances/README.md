@@ -12,7 +12,7 @@ Le fichier détail des naissances 2024 porte sur **l’ensemble des naissances v
 
 ---
 
-## 🔍 Description du jeu de données
+### 🔍 Description du jeu de données
 
 | **Code**     | **Définition**                                                                 | **Modalités** |
 |---------------|--------------------------------------------------------------------------------|----------------|

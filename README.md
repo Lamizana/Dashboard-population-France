@@ -106,6 +106,7 @@ Dashboard-population-France/
 │   └── deces/
 │       ├── deces_2020.parquet
 │       ├── deces_2021.parquet
+│       ├── naissances_2021.parquet
 │       ├── ...
 ├── utils/
 │   ├── logger.py

@@ -3,7 +3,7 @@ import plotly.express as px
 from pathlib import Path
 import pandas as pd
 
-from utils.data_loader import charger_parquet_multi
+from utils.loader import charger_parquet_multi
 
 
 # ---------------------------------------------------------------------
