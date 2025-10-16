@@ -131,8 +131,20 @@ Dashboard-population-France/
 
 - `dashboard/app.py` — **point d’entrée Streamlit**.
 
-### 
+---
 
+## 🏛️ INSEE (Institut National de la Statistique et des Études Économiques)
+
+> 🔹 C’est **la source officielle** des données démographiques, économiques et sociales en France.
+
+- C’est **l’organisme producteur** des données (par exemple les fichiers des décès, naissances, recensements, revenus, etc.). 
+- Les données sont **certifiées**, **contrôlées** et **documentées** par des statisticiens publics.
+- C’est **la référence** pour les chiffres “officiels” utilisés par le gouvernement, les chercheurs et les médias.
+- Les fichiers bruts (`naissances`, `décès`, `recensements`) viennent directement de l’état civil.
+
+📍 **Site officiel :** [insee.fr](https://www.insee.fr)
+
+📂 **Exemple :** [Naissances, décès, mariages — INSEE](https://www.insee.fr/fr/statistiques/1893255)
 ---
 
 ## Utilisations
