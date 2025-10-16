@@ -171,7 +171,7 @@ git checkout -b feature/...
 Pousse la nouvelle branche sur le dépôt distant :
 
 ```bash
-q
+git push -u origin feature/...
 ```
 
 

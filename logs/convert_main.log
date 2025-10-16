@@ -118,3 +118,33 @@
 2025-10-12 16:15:46 [WARNING] [data_loader.py in convert_to_parquet(99)] - Aucun fichier .txt trouvé dans data_processed/deces
 2025-10-12 16:15:46 [INFO] [main(32)] - ✅ Conversion terminée avec succès.
 2025-10-12 16:15:46 [INFO] [main(33)] - Fichiers Parquet disponibles dans : /home/lamizana/projects/Dashboard-population-France/data_processed/deces
+2025-10-12 19:23:18 [INFO] [main(26)] - 🚀 Démarrage de la conversion massive INSEE (TXT → Parquet)
+2025-10-12 19:23:18 [WARNING] [data_loader.py in convert_to_parquet(100)] - Aucun fichier .txt trouvé dans data_processed\deces
+--------------------------------------------------------------------------------
+2025-10-12 19:23:18 [INFO] [main(40)] - ✅ Conversion terminée avec succès.
+2025-10-12 19:23:18 [INFO] [main(41)] - Fichiers Parquet disponibles dans : \\wsl$\Ubuntu\home\lamizana\projects\Dashboard-population-France\data_processed\deces
+2025-10-12 19:24:56 [INFO] [main(26)] - 🚀 Démarrage de la conversion massive INSEE (TXT → Parquet)
+2025-10-12 19:24:56 [WARNING] [data_loader.py in convert_to_parquet(100)] - Aucun fichier .txt trouvé dans data_processed\deces
+2025-10-12 19:24:56 [INFO] [main(38)] - ✅ Conversion terminée avec succès.
+2025-10-12 19:24:56 [INFO] [main(39)] - Fichiers Parquet disponibles dans : \\wsl$\Ubuntu\home\lamizana\projects\Dashboard-population-France\data_processed\deces
+--------------------------------------------------------------------------------
+2025-10-12 19:25:39 [INFO] [main(26)] - 🚀 Démarrage de la conversion massive INSEE (TXT → Parquet)
+2025-10-12 19:25:39 [WARNING] [data_loader.py in convert_to_parquet(100)] - Aucun fichier .txt trouvé dans data_processed\deces
+2025-10-12 19:25:39 [INFO] [main(38)] - ✅ Conversion terminée avec succès.
+2025-10-12 19:25:39 [INFO] [main(39)] - Fichiers Parquet disponibles dans : \\wsl$\Ubuntu\home\lamizana\projects\Dashboard-population-France\data_processed\eces
+--------------------------------------------------------------------------------
+2025-10-12 19:33:53 [INFO] [main(26)] - 🚀 Démarrage de la conversion massive INSEE (TXT → Parquet)
+2025-10-12 19:33:53 [WARNING] [data_loader.py in convert_to_parquet(100)] - Aucun fichier .txt trouvé dans data_processed\deces
+2025-10-12 19:33:53 [INFO] [main(38)] - ✅ Conversion terminée avec succès.
+2025-10-12 19:33:53 [INFO] [main(39)] - Fichiers Parquet disponibles dans : \\wsl$\Ubuntu\home\lamizana\projects\Dashboard-population-France\data_processed\deces
+--------------------------------------------------------------------------------
+2025-10-12 19:34:35 [INFO] [main(26)] - 🚀 Démarrage de la conversion massive INSEE (TXT → Parquet)
+2025-10-12 19:34:35 [WARNING] [data_loader.py in convert_to_parquet(100)] - Aucun fichier .txt trouvé dans data_processed\eces
+2025-10-12 19:34:35 [INFO] [main(38)] - ✅ Conversion terminée avec succès.
+2025-10-12 19:34:35 [INFO] [main(39)] - Fichiers Parquet disponibles dans : \\wsl$\Ubuntu\home\lamizana\projects\Dashboard-population-France\data_processed\deces
+--------------------------------------------------------------------------------
+2025-10-12 19:35:50 [INFO] [main(26)] - 🚀 Démarrage de la conversion massive INSEE (TXT → Parquet)
+2025-10-12 19:35:50 [WARNING] [data_loader.py in convert_to_parquet(100)] - Aucun fichier .txt trouvé dans data_processed\deces
+2025-10-12 19:35:50 [INFO] [main(38)] - ✅ Conversion terminée avec succès.
+2025-10-12 19:35:50 [INFO] [main(39)] - Fichiers Parquet disponibles dans : \\wsl$\Ubuntu\home\lamizana\projects\Dashboard-population-France\data_processed\deces
+--------------------------------------------------------------------------------
