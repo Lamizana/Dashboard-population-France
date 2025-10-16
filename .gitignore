@@ -1,3 +1,5 @@
+logs
 .env/
 .idea/
 __pycache__/
+dashboard_population_france.egg-info/

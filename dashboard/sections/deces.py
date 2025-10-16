@@ -5,6 +5,7 @@ import pandas as pd
 
 from utils.data_loader import charger_parquet_multi
 
+
 # ---------------------------------------------------------------------
 @st.cache_data(show_spinner=True)
 def list_available_years():
@@ -13,6 +14,7 @@ def list_available_years():
     files = sorted(data_dir.glob("deces_*.parquet"))
     years = [int(f.stem.split("_")[1]) for f in files if f.stem.split("_")[1].isdigit()]
     return years, data_dir
+
 
 # ---------------------------------------------------------------------
 @st.cache_data(show_spinner=True)
@@ -29,9 +31,10 @@ def load_data_by_years(selected_years, base_dir):
         return pd.DataFrame()
     return pd.concat(dfs, ignore_index=True)
 
+
 # ---------------------------------------------------------------------
 def render():
-    st.header("📊 Décès — Analyse interactive (Plotly)")
+    st.header("📊 Décès — Analyse interactive")
     st.caption("Source : INSEE / data.gouv.fr")
 
     # === Charger la liste des années disponibles ===
@@ -189,7 +192,7 @@ def render():
         st.markdown(
             """
             🔍 **Interprétation :**
-            - Aucune pour le moment?
+            - Aucune pour le moment ...
             """
         )
     else:

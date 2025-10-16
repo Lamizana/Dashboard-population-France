@@ -7,7 +7,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("📊 Tableau de bord — Données France (INSEE / data.gouv.fr)")
+st.title("Analyse de la population francaise")
 
 # --- Barre latérale ---
 section = st.sidebar.radio(

@@ -34,10 +34,12 @@ def main():
     except Exception as e:
         LOG.error(f"FERMETURE FORCE - {e}")
         return 1
+    else:
+        LOG.info("✅ Conversion terminée avec succès.")
+        LOG.info(f"Fichiers Parquet disponibles dans : {output_dir.resolve()}")
+    finally:
+        LOG.separator()
 
-    LOG.info("✅ Conversion terminée avec succès.")
-    LOG.info(f"Fichiers Parquet disponibles dans : {output_dir.resolve()}")
-    LOG.separator()
     return 0
 
 
