@@ -1,10 +1,10 @@
-# 📁 Données — Fichier des décès (INSEE / data.gouv.fr)
+# Données — Fichier des décès (INSEE / data.gouv.fr)
 
 Les données utilisées dans ce module proviennent du **fichier des personnes décédées**, mis à disposition par l’**INSEE** via la plateforme [data.gouv.fr](https://www.data.gouv.fr/fr/datasets/fichier-des-personnes-decedees/).
 
 ---
 
-## 🔍 Description du jeu de données
+## Description du jeu de données
 
 Le **fichier des personnes décédées** recense, pour chaque individu déclaré décédé en France depuis 1970 :
 
@@ -18,7 +18,7 @@ Les fichiers sont mis à jour **chaque mois** et publiés sous la forme de fichi
 
 ---
 
-## 🧩 Structure du fichier  
+## Structure du fichier  
 
 Le fichier est fourni au format **texte brut (.txt)**, avec des champs à **positions fixes**.  
 Chaque enregistrement correspond à **une personne décédée**.  
@@ -33,11 +33,11 @@ Chaque enregistrement correspond à **une personne décédée**.
 | **DOM/TOM/COM/Pays de naissance (en clair)** | 30 | 125–154 | Alphanumérique | Nom du territoire ou du pays de naissance |
 | **Date de décès** | 8 | 155–162 | Numérique | Forme : `AAAAMMJJ` (même codification que la date de naissance) |
 | **Code du lieu de décès** | 5 | 163–167 | Alphanumérique | Code Officiel Géographique du lieu de décès |
-| **Numéro d’acte de décès** | 9 | 168–176 | Alphanumérique | Numéro d’acte — ⚠️ certains enregistrements peuvent contenir des caractères non significatifs en fin de ligne |
+| **Numéro d’acte de décès** | 9 | 168–176 | Alphanumérique | Numéro d’acte —  certains enregistrements peuvent contenir des caractères non significatifs en fin de ligne |
 
 ---
 
-## 🧠 Remarques importantes  
+## Remarques importantes  
 
 - Les fichiers peuvent contenir plusieurs millions d’enregistrements.  
 - Il est recommandé de les manipuler avec des outils adaptés (**Python / pandas**, **Spark**, ou des bases de données).  
@@ -46,18 +46,18 @@ Chaque enregistrement correspond à **une personne décédée**.
 📎 Exemple de fichier utilisé :  
 [`deces-2024.txt`](https://static.data.gouv.fr/resources/fichier-des-personnes-decedees/20250210-094840/deces-2024.txt)
 
-> ⚠️ Le fichier est en **texte brut** avec des largeurs de champs fixes (format FWF).  
+> Le fichier est en **texte brut** avec des largeurs de champs fixes (format FWF).  
 > Il doit être lu via `pandas.read_fwf()` pour être correctement interprété.
 
 ---
 
-## 🧮 Exemple d’utilisation dans le projet
+## Exemple d’utilisation dans le projet
 
 Le module `utils/data_loader.py` contient une fonction de lecture :
 
 ---
 
-## 🗂️ Organisation locale
+## Organisation locale
 
 Les fichiers texte sont stockés dans le répertoire :
 
@@ -73,7 +73,7 @@ dashboard/assets/data/deces/
 
 ---
 
-## ⚙️Traitement des données
+## Traitement des données
 
 Une fois le fichier chargé :
 
@@ -95,7 +95,7 @@ df["age_deces"] = ((df["date_deces"] - df["date_naissance"]).dt.days / 365.25).r
 
 ---
 
-## 📊 Visualisation
+## Visualisation
 
 Les données de décès sont exploitées dans plusieurs visualisations :
 
@@ -115,7 +115,7 @@ dashboard/assets/cartes/
 
 ---
 
-## 📚 Source officielle
+## Source officielle
 
 - **Fichier des personnes décédées — INSEE**
     > https://www.data.gouv.fr/fr/datasets/fichier-des-personnes-decedees/

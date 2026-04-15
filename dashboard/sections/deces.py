@@ -10,6 +10,7 @@ import pandas as pd
 @st.cache_data(show_spinner=True)
 def list_available_years():
     """Liste toutes les années disponibles dans le dossier Parquet."""
+
     data_dir = Path("data_processed/deces")
     files = sorted(data_dir.glob("deces_*.parquet"))
     years = [int(f.stem.split("_")[1]) for f in files if f.stem.split("_")[1].isdigit()]
@@ -20,6 +21,7 @@ def list_available_years():
 @st.cache_data(show_spinner=True)
 def load_data_by_years(selected_years, base_dir):
     """Charge uniquement les années sélectionnées."""
+
     dfs = []
     for year in selected_years:
         path = base_dir / f"deces_{year}.parquet"
@@ -34,7 +36,7 @@ def load_data_by_years(selected_years, base_dir):
 
 # ---------------------------------------------------------------------
 def render():
-    st.header("📊 Décès — Analyse interactive")
+    st.header(" Décès — Analyse interactive")
     st.caption("Source : INSEE / data.gouv.fr")
 
     # === Charger la liste des années disponibles ===
@@ -67,7 +69,7 @@ def render():
     sexes = sorted(df["sexe"].unique())
     sexe_sel = st.sidebar.multiselect("Sexes", sexes, default=sexes)
     age_min, age_max = int(df["age_deces"].min()), int(df["age_deces"].max())
-    age_range = st.sidebar.slider("Tranche d’âge", 0, 150, (0, 155))
+    age_range = st.sidebar.slider("Tranche d’âge", 0, 100, (0, 100))
 
     filtre = df[
         (df["sexe"].isin(sexe_sel)) &
@@ -77,7 +79,7 @@ def render():
     st.success(f"✅ {len(filtre):,} lignes chargées depuis {len(selected_years)} année(s).")
 
     # -----------------------------------------------------------------
-    # 📊 Histogramme âge
+    # Histogramme âge
     st.subheader("Répartition de l'âge au décès")
     fig_age = px.histogram(
         filtre,
@@ -88,10 +90,20 @@ def render():
         color_discrete_map={"1": "DodgerBlue", "2": "LightCoral"},
         title=f"Distribution de l'âge au décès ({min(selected_years)}–{max(selected_years)})"
     )
+
+    # Mise en forme de l’axe
+    fig_age.update_layout(
+        xaxis_title="Age du décès",
+        yaxis_title="Décès",
+        xaxis_tickangle=-45,
+        bargap=0.05,
+        hovermode="x unified"
+    )
+    
     st.plotly_chart(fig_age, use_container_width=True)
 
     # -----------------------------------------------------------------
-    # 📈 Décès par mois et par sexe
+    # Décès par mois et par sexe
     st.subheader("Nombre de décès par mois et par sexe")
 
     if "mois_deces" in filtre.columns and "annee_deces" in filtre.columns:
@@ -113,7 +125,7 @@ def render():
             x="annee_mois",
             y="nb_deces",
             color="sexe",
-            barmode="group",  # ou "stack" selon préférence
+            barmode="group",
             color_discrete_map={"1": "DodgerBlue", "2": "LightCoral"},
             title="Nombre de décès par mois et par sexe (2020–2024)",
             labels={"annee_mois": "Mois", "nb_deces": "Nombre de décès", "sexe": "Sexe"}
@@ -121,7 +133,7 @@ def render():
 
         # Mise en forme de l’axe
         fig_mois.update_layout(
-            xaxis_title="Période (AAAA-MM)",
+            xaxis_title="Période (année-mois)",
             yaxis_title="Décès mensuels",
             xaxis_tickangle=-45,
             bargap=0.05,
@@ -134,7 +146,7 @@ def render():
         st.warning("Les colonnes 'annee_deces' et 'mois_deces' sont nécessaires pour cette visualisation.")
 
     # -----------------------------------------------------------------
-    # 📦 Boxplot âge/sexe
+    # Boxplot âge/sexe
     st.subheader("Distribution de l’âge au décès par sexe")
     fig_box = px.box(
         filtre,
@@ -149,6 +161,6 @@ def render():
 
 
     # -----------------------------------------------------------------
-    # 📋 Échantillon de données
+    # Échantillon de données
     with st.expander("Voir un aperçu des données"):
         st.dataframe(filtre.head(1000), use_container_width=True)

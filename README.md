@@ -6,9 +6,9 @@ Mise en place d'un Dashboard étudiant l'évolution de la population francaise
 
 ## Introduction
 
-Ce projet a pour but d'analyser les vrais chiffres de la population (données publique 'data.gouv.fr') et d'étudier les différentes corrélation sur la violence exercées sur les femmes en france.
+Ce projet a pour but d'analyser les vrais chiffres de la population (données publique 'data.gouv.fr') et d'étudier les différentes corrélations sur la **violence exercées sur les femmes en france**.
 
-Le but de ce projet est de trouver des patterns sur la condition de l'agresseur et de l'agressé pour mieux prévenir le danger.
+> Le but de ce projet est de trouver des patterns sur la condition de l'agresseur et de l'agressé pour mieux prévenir le danger.
 
 ---
 
