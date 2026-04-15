@@ -1,7 +1,7 @@
-# 📁 Données — Fichier des naissances (INSEE / data.gouv.fr)
+# Données — Fichier des naissances (INSEE / data.gouv.fr)
 
 > Pour le détail complet des variables et la documentation officielle INSEE :
-👉 [Consulter le PDF complet (naissance.pdf)](../naissances)
+[Consulter le PDF complet (naissance.pdf)](../naissances)
 ---
 
 ## Naissances 2024
@@ -12,7 +12,7 @@ Le fichier détail des naissances 2024 porte sur **l’ensemble des naissances v
 
 ---
 
-### 🔍 Description du jeu de données
+### Description du jeu de données
 
 | **Code**     | **Définition**                                                                 | **Modalités** |
 |---------------|--------------------------------------------------------------------------------|----------------|
@@ -33,16 +33,15 @@ Le fichier détail des naissances 2024 porte sur **l’ensemble des naissances v
 
 ---
 
-## 🧠 Remarques importantes  
+## Remarques importantes  
 
-## 🧮 Exemple d’utilisation dans le projet
+## Exemple d’utilisation dans le projet
 
 Le module `utils/data_loader.py` contient une fonction de lecture :
 
 ---
 
-## 🗂️ Organisation locale
-
+## Organisation locale
 
 ```swift
 dashboard/assets/data/naissances/
@@ -56,26 +55,7 @@ dashboard/assets/data/deces/
 
 ---
 
-## ⚙️Traitement des données
-
-Une fois le fichier chargé :
-
-
-```python
-
-```
-
----
-
-## 📊 Visualisation
-
-
-```bash
-```
-
----
-
-## 📚 Source officielle 
+## Source officielle 
 
 - **Fichier des naissances — INSEE**
     > https://www.insee.fr/fr/recherche?q=naissances&debut=0
