@@ -3,7 +3,7 @@ import plotly.express as px
 from pathlib import Path
 import pandas as pd
 
-from utils.loader import charger_parquet_multi
+# from utils.loader import charger_parquet_multi
 
 
 # ---------------------------------------------------------------------
@@ -147,56 +147,6 @@ def render():
     )
     st.plotly_chart(fig_box, use_container_width=True)
 
-    # -----------------------------------------------------------------
-    # 📅 Saisonnalité mensuelle explicite
-    if "mois_deces" in filtre.columns:
-        st.subheader("📅 Saisonnalité mensuelle des décès (2020–2024)")
-        st.caption("Analyse de la répartition des décès selon les mois de l'année — toutes années confondues.")
-
-        # Noms des mois en français
-        mois_labels = {
-            1: "Janvier", 2: "Février", 3: "Mars", 4: "Avril",
-            5: "Mai", 6: "Juin", 7: "Juillet", 8: "Août",
-            9: "Septembre", 10: "Octobre", 11: "Novembre", 12: "Décembre"
-        }
-        filtre["mois_nom"] = filtre["mois_deces"].astype(int).map(mois_labels)
-
-        # Ordre chronologique
-        ordre_mois = list(mois_labels.values())
-        filtre["mois_nom"] = pd.Categorical(filtre["mois_nom"], categories=ordre_mois, ordered=True)
-
-        # Histogramme des décès par mois et sexe
-        fig_month = px.histogram(
-            filtre,
-            x="mois_nom",
-            color="sexe",
-            barmode="stack",
-            category_orders={"mois_nom": ordre_mois},
-            color_discrete_map={"1": "DodgerBlue", "2": "LightCoral"},
-            labels={"mois_nom": "Mois de décès", "sexe": "Sexe"},
-            title="Répartition mensuelle des décès par sexe (2020–2024)"
-        )
-
-        fig_month.update_layout(
-            xaxis_title="Mois de l'année",
-            yaxis_title="Nombre total de décès",
-            bargap=0.05,
-            hovermode="x unified",
-            legend_title="Sexe",
-            xaxis_tickangle=-30,
-        )
-
-        st.plotly_chart(fig_month, use_container_width=True)
-
-        # Commentaire contextuel
-        st.markdown(
-            """
-            🔍 **Interprétation :**
-            - Aucune pour le moment ...
-            """
-        )
-    else:
-        st.warning("Les colonnes 'mois_deces' sont nécessaires pour l'analyse de saisonnalité.")
 
     # -----------------------------------------------------------------
     # 📋 Échantillon de données

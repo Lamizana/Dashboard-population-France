@@ -1,27 +1,20 @@
-# Cours_IA
+# Dashboard populatioçn francaise
 
-Mise en place de différentes applications d’**intelligence artificielle** avec **Scikit-learn**.
+Mise en place d'un Dashboard étudiant l'évolution de la population francaise
 
 ---
 
 ## Introduction
 
-Ce projet a pour but d'analyser les vrais chiffres de la population (données publique 'data.gouv.fr') et d'étudier 
-les différentes corrélation sur la violence exercées sur les femmes en france.
+Ce projet a pour but d'analyser les vrais chiffres de la population (données publique 'data.gouv.fr') et d'étudier les différentes corrélation sur la violence exercées sur les femmes en france.
 
-Le but de ce projet est de trouver des patterns sur la condition de l'agresseur et de l'agressé pour mieux prévenir 
-le danger.
-
-##  Sommaire
-
-- [Setup et installation](#setup-et-installation)
+Le but de ce projet est de trouver des patterns sur la condition de l'agresseur et de l'agressé pour mieux prévenir le danger.
 
 ---
 
-##  Setup et installation
+## Setup et installation
 
-
-###  Recupèrer le dépot
+### Recupèrer le dépot
 
 ```bash
 # Cloner le projet
@@ -66,6 +59,7 @@ python3 -m sections.deces
 ```
 
 - Lancer le Dadshboard en local :
+
 ```bash
 streamlit run dashboard/app.py
 ```
@@ -81,7 +75,7 @@ Dashboard-population-France/
 │
 ├── dashboard/
 │   ├── app.py                      # Tableau de bord Streamlit principal
-│   ├── __init__.py                      # Tableau de bord Streamlit principal
+│   ├── __init__.py                      
 │   ├── sections/
 │   │   ├── population.py
 │   │   ├── naissance.py
@@ -103,7 +97,6 @@ Dashboard-population-France/
 │   └── deces/
 │       ├── deces_2020.parquet
 │       ├── deces_2021.parquet
-│       ├── naissances_2021.parquet
 │       ├── ...
 ├── utils/
 │   ├── logger.py
@@ -131,7 +124,7 @@ Dashboard-population-France/
 
 ---
 
-##  INSEE (Institut National de la Statistique et des Études Économiques)
+## INSEE (Institut National de la Statistique et des Études Économiques)
 
 > 🔹 C’est **la source officielle** des données démographiques, économiques et sociales en France.
 
@@ -140,46 +133,4 @@ Dashboard-population-France/
 - C’est **la référence** pour les chiffres “officiels” utilisés par le gouvernement, les chercheurs et les médias.
 - Les fichiers bruts (`naissances`, `décès`, `recensements`) viennent directement de l’état civil.
 
-📍 **Site officiel :** [insee.fr](https://www.insee.fr)
-
-📂 **Exemple :** [Naissances, décès, mariages — INSEE](https://www.insee.fr/fr/statistiques/1893255)
----
-
-## Utilisations
-
-<details> <summary><strong> Cliquer pour dérouler la section d'utilisation</strong></summary>
-
-### Les pull Request (Pr)
-
-- Toujours commencer par un ``git pull``.
-
-```bash
-> git checkout -b Prefix/name_pull_request
-> git commit -am "Prefix:name_pull_request"
-> git push
-```
-
-Allez sur github et créer une pull request, remplir le formulaire et les labels puis l'envoyer
-
-### Création d'une nouvelle branche
-
-Créer une nouvelle branche ***feature/...*** à partir de la branche principale ``develop``  et la pousser vers le dépôt Git distant, voici les étapes à suivre :
-
-Se placer sur la branche de base et la mettre à jour :
-
-```bash
-git checkout develop
-git pull origin develop
-```
-
-Créer et basculer sur la nouvelle branche :
-
-```bash
-git checkout -b feature/...
-```
-
-Pousse la nouvelle branche sur le dépôt distant :
-
-```bash
-git push -u origin feature/...
-```
+**Site officiel :** [insee.fr](https://www.insee.fr)
