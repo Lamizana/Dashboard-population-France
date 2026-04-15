@@ -3,9 +3,6 @@ import plotly.express as px
 from pathlib import Path
 import pandas as pd
 
-# from utils.loader import charger_parquet_multi
-
-
 # ---------------------------------------------------------------------
 @st.cache_data(show_spinner=True)
 def list_available_years():
@@ -99,7 +96,7 @@ def render():
         bargap=0.05,
         hovermode="x unified"
     )
-    
+
     st.plotly_chart(fig_age, use_container_width=True)
 
     # -----------------------------------------------------------------

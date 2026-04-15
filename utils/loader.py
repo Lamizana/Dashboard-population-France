@@ -81,7 +81,6 @@ def nettoyer_deces(df: pd.DataFrame) -> pd.DataFrame:
 #######################################################################
 #                           NAISSANCES
 #######################################################################
-# ---------------------------------------------------------------------
 def lire_fichier_naissances(fichier: str) -> pd.DataFrame:
     """
     Lecture du fichier des naissances INSEE au format Parquet.
