@@ -114,7 +114,7 @@ Dashboard-population-France/
 
 1. Le projet est centralisé avec **Docker**.
 2. L'application est dirigée par **Streamlit**.
-3. Les fichiers du gouvrenement francais sur le recensement de la population sont des `.txt`
+3. Les fichiers du gouvernement francais sur le recensement de la population sont des `.txt`
    1. Ils sont récupérés sur `data.gouv.fr`
    2. C'est public, donc gratuit, vous pouvez tous savoir.
    3. Il y a une quantité astromique de données publiques.

@@ -9,6 +9,8 @@ st.set_page_config(
 
 st.title("Analyse de la population francaise")
 
+deces.render()
+
 # --- Barre latérale ---
 section = st.sidebar.radio(
     "📂 Choisissez une section :",
